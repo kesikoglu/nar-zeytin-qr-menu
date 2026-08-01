@@ -63,7 +63,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="rounded-md border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
+          <div className="rounded-md border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900 lg:mt-11">
             <h2 className="text-xl font-bold text-slate-950 dark:text-white">Recommended Tools</h2>
             <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">Prepared slots for future design tool, font, template, stock asset, and website builder recommendations.</p>
           </div>
