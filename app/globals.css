@@ -32,11 +32,93 @@ html {
 
 body {
   min-width: 320px;
-  background: #f4f4f5;
+  background: #070706;
 }
 
 .dark body {
-  background: #09090b;
+  background: #070706;
+}
+
+.motion-kenburns {
+  animation: kenburns 18s ease-in-out infinite alternate;
+}
+
+.motion-float {
+  animation: float 7s ease-in-out infinite;
+}
+
+.motion-float-delayed {
+  animation: float 8s ease-in-out infinite;
+  animation-delay: -2s;
+}
+
+.motion-orbit {
+  animation: orbit 8s ease-in-out infinite;
+}
+
+.motion-orbit-reverse {
+  animation: orbitReverse 9s ease-in-out infinite;
+}
+
+.nutrition-track {
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+@keyframes kenburns {
+  from {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.12) translate3d(-2%, 1%, 0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0) rotate(1deg);
+  }
+}
+
+@keyframes orbit {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(22px, 14px, 0);
+  }
+}
+
+@keyframes orbitReverse {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(-20px, -12px, 0);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-kenburns,
+  .motion-float,
+  .motion-float-delayed,
+  .motion-orbit,
+  .motion-orbit-reverse,
+  .nutrition-track {
+    animation: none;
+  }
 }
 
 @layer components {
