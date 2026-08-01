@@ -155,7 +155,7 @@ export function PaletteGenerator() {
       <div className="grid gap-4 rounded-md border border-slate-200 bg-white p-4 shadow-soft dark:border-slate-800 dark:bg-slate-900">
         <div className="grid gap-3 lg:grid-cols-[1fr_auto] lg:items-start">
           <div className="grid gap-3 xl:grid-cols-[1fr_1.05fr_1.05fr_1fr]">
-            <label className="grid gap-1 text-sm font-medium text-slate-700 dark:text-slate-200">
+            <label className="grid grid-rows-[1.25rem_auto_auto] gap-1 text-sm font-medium text-slate-700 dark:text-slate-200">
               Mode
               <select value={mode} onChange={(event) => setMode(event.target.value as GenerationMode)} className="field">
                 {generationModes.map((item) => (
@@ -163,7 +163,7 @@ export function PaletteGenerator() {
                 ))}
               </select>
             </label>
-            <label className="grid gap-1 text-sm font-medium text-slate-700 dark:text-slate-200">
+            <label className="grid grid-rows-[1.25rem_auto_auto] gap-1 text-sm font-medium text-slate-700 dark:text-slate-200">
               Base color
               <span className="flex gap-2">
                 <input type="color" value={baseColor} onChange={(event) => setBaseColor(event.target.value.toUpperCase())} className="h-11 w-14 rounded-md border border-slate-300 bg-transparent p-1 dark:border-slate-700" aria-label="Choose base color" />
@@ -174,7 +174,7 @@ export function PaletteGenerator() {
               </span>
               {!isValidHex(baseColor) ? <span className="text-sm text-red-600 dark:text-red-400">Enter a valid HEX color.</span> : null}
             </label>
-            <label className="grid gap-1 text-sm font-medium text-slate-700 dark:text-slate-200">
+            <label className="grid grid-rows-[1.25rem_auto_auto] gap-1 text-sm font-medium text-slate-700 dark:text-slate-200">
               Custom color
               <span className="flex gap-2">
                 <input type="color" value={isValidHex(customColor) ? normalizeHex(customColor) : "#FFFFFF"} onChange={(event) => setCustomColor(event.target.value.toUpperCase())} className="h-11 w-14 rounded-md border border-slate-300 bg-transparent p-1 dark:border-slate-700" aria-label="Choose custom color" />
@@ -182,12 +182,12 @@ export function PaletteGenerator() {
               </span>
               {!isValidHex(customColor) ? <span className="text-sm text-red-600 dark:text-red-400">Enter a valid HEX color.</span> : null}
             </label>
-            <label className="grid gap-1 text-sm font-medium text-slate-700 dark:text-slate-200">
+            <label className="grid grid-rows-[1.25rem_auto_auto] gap-1 text-sm font-medium text-slate-700 dark:text-slate-200">
               Palette name
               <input value={name} onChange={(event) => setName(event.target.value)} className="field" placeholder="Optional name" maxLength={48} />
             </label>
           </div>
-          <button type="button" onClick={generate} className="btn-primary justify-center lg:mt-7">
+          <button type="button" onClick={generate} className="btn-primary justify-center lg:mt-6">
             <Shuffle className="h-4 w-4" />
             Generate Palette
           </button>
