@@ -28,6 +28,15 @@ export function Header() {
         </nav>
         <ThemeToggle />
       </div>
+      <nav className="border-t border-slate-200/70 px-4 py-2 dark:border-slate-800 md:hidden" aria-label="Mobile navigation">
+        <div className="mx-auto flex max-w-7xl gap-2 overflow-x-auto">
+          {nav.map((item) => (
+            <Link key={item.href} href={item.href} className="shrink-0 rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-950 focus:outline-none focus:ring-2 focus:ring-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white dark:focus:ring-white">
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      </nav>
     </header>
   );
 }

@@ -5,7 +5,7 @@ import { Copy, Download, ExternalLink, Trash2 } from "lucide-react";
 import Link from "next/link";
 import { copyText } from "@/lib/clipboard";
 import { formatPalette, paletteFilename, downloadTextFile } from "@/lib/export";
-import { readSavedPalettes, writeSavedPalettes } from "@/lib/storage";
+import { readSavedPalettes, setCurrentPalette, writeSavedPalettes } from "@/lib/storage";
 import type { SavedPalette } from "@/types/palette";
 import { useToast } from "@/components/ui/Toast";
 
@@ -25,6 +25,15 @@ export function SavedPalettesClient() {
   async function copy(colors: string[]) {
     const ok = await copyText(colors.join(", "));
     showToast(ok ? "Palette copied." : "Could not copy palette.");
+  }
+
+  function openPalette(colors: string[]) {
+    try {
+      const ok = setCurrentPalette(colors);
+      showToast(ok ? "Opening palette." : "Could not open this palette.");
+    } catch {
+      showToast("Browser storage is unavailable.");
+    }
   }
 
   if (!palettes.length) {
@@ -47,7 +56,7 @@ export function SavedPalettesClient() {
               <p className="text-sm text-slate-500 dark:text-slate-400">{new Date(palette.createdAt).toLocaleDateString()}</p>
             </div>
             <div className="flex flex-wrap gap-2">
-              <Link href="/" className="btn-secondary"><ExternalLink className="h-4 w-4" />Open</Link>
+              <Link href="/" onClick={() => openPalette(palette.colors)} className="btn-secondary"><ExternalLink className="h-4 w-4" />Open</Link>
               <button className="btn-secondary" onClick={() => copy(palette.colors)}><Copy className="h-4 w-4" />Copy</button>
               <button className="btn-secondary" onClick={() => downloadTextFile(formatPalette(palette.colors, "json"), paletteFilename("json"), "application/json")}><Download className="h-4 w-4" />Export</button>
               <button className="btn-secondary" onClick={() => remove(palette.id)}><Trash2 className="h-4 w-4" />Delete</button>

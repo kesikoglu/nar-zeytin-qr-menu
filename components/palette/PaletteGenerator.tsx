@@ -6,7 +6,7 @@ import { ExportPanel } from "@/components/export/ExportPanel";
 import { useToast } from "@/components/ui/Toast";
 import { copyText } from "@/lib/clipboard";
 import { createInitialPalette, generatePalette, generationModes, id, isValidHex, normalizeHex, readableText, toHsl, toRgb } from "@/lib/color";
-import { savePalette } from "@/lib/storage";
+import { consumeCurrentPalette, savePalette } from "@/lib/storage";
 import type { GenerationMode, PaletteColor } from "@/types/palette";
 
 const minColors = 2;
@@ -23,17 +23,29 @@ export function PaletteGenerator() {
   const paletteRef = useRef<HTMLDivElement>(null);
   const { showToast } = useToast();
 
+  useEffect(() => {
+    const loaded = consumeCurrentPalette();
+    if (loaded) {
+      setPalette(loaded.map((hex) => ({ id: id(), hex: normalizeHex(hex), locked: false })));
+      showToast("Saved palette opened.");
+    }
+  }, [showToast]);
+
   const push = useCallback((next: PaletteColor[]) => {
     setHistory((items) => [palette, ...items].slice(0, 10));
     setPalette(next);
   }, [palette]);
 
   const generate = useCallback(() => {
+    if (!isValidHex(baseColor)) {
+      showToast("Enter a valid base HEX color before generating.");
+      return;
+    }
     if (palette.every((color) => color.locked)) {
       showToast("All colors are locked. Unlock at least one color to generate a new palette.");
       return;
     }
-    push(generatePalette(palette, mode, baseColor));
+    push(generatePalette(palette, mode, normalizeHex(baseColor)));
   }, [baseColor, mode, palette, push, showToast]);
 
   useEffect(() => {
@@ -76,7 +88,11 @@ export function PaletteGenerator() {
       showToast("A palette can include up to eight colors.");
       return;
     }
-    push([...palette, { id: id(), hex: generatePalette([{ id: id(), hex: baseColor, locked: false }], mode, baseColor)[0].hex, locked: false }]);
+    if (!isValidHex(baseColor)) {
+      showToast("Enter a valid base HEX color before adding a generated color.");
+      return;
+    }
+    push([...palette, { id: id(), hex: generatePalette([{ id: id(), hex: normalizeHex(baseColor), locked: false }], mode, normalizeHex(baseColor))[0].hex, locked: false }]);
   }
 
   function clearLocks() {
@@ -135,6 +151,7 @@ export function PaletteGenerator() {
                 <input type="color" value={baseColor} onChange={(event) => setBaseColor(event.target.value.toUpperCase())} className="h-11 w-14 rounded-md border border-slate-300 bg-transparent p-1 dark:border-slate-700" aria-label="Choose base color" />
                 <input value={baseColor} onChange={(event) => isValidHex(event.target.value) ? setBaseColor(normalizeHex(event.target.value)) : setBaseColor(event.target.value)} className="field min-w-0" aria-label="Base HEX color" />
               </span>
+              {!isValidHex(baseColor) ? <span className="text-sm text-red-600 dark:text-red-400">Enter a valid HEX color.</span> : null}
             </label>
             <label className="grid gap-1 text-sm font-medium text-slate-700 dark:text-slate-200">
               Palette name
