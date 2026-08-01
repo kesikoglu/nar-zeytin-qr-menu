@@ -153,7 +153,7 @@ export function PaletteGenerator() {
   return (
     <section className="grid gap-5" aria-label="Color palette generator">
       <div className="grid gap-4 rounded-md border border-slate-200 bg-white p-4 shadow-soft dark:border-slate-800 dark:bg-slate-900">
-        <div className="grid gap-3 lg:grid-cols-[1fr_auto] lg:items-end">
+        <div className="grid gap-3 lg:grid-cols-[1fr_auto] lg:items-start">
           <div className="grid gap-3 xl:grid-cols-[1fr_1.05fr_1.05fr_1fr]">
             <label className="grid gap-1 text-sm font-medium text-slate-700 dark:text-slate-200">
               Mode
@@ -187,7 +187,7 @@ export function PaletteGenerator() {
               <input value={name} onChange={(event) => setName(event.target.value)} className="field" placeholder="Optional name" maxLength={48} />
             </label>
           </div>
-          <button type="button" onClick={generate} className="btn-primary justify-center">
+          <button type="button" onClick={generate} className="btn-primary justify-center lg:mt-7">
             <Shuffle className="h-4 w-4" />
             Generate Palette
           </button>
