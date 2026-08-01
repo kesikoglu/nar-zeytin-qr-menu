@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowLeftRight, Copy, Download, GripVertical, Lock, LockOpen, Plus, RotateCcw, Save, Shuffle, Trash2, X } from "lucide-react";
 import { ExportPanel } from "@/components/export/ExportPanel";
+import { WebsitePreview } from "@/components/palette/WebsitePreview";
 import { useToast } from "@/components/ui/Toast";
 import { copyText } from "@/lib/clipboard";
 import { createInitialPalette, generatePalette, generationModes, id, isValidHex, normalizeHex, readableText, toHsl, toRgb } from "@/lib/color";
@@ -236,6 +237,8 @@ export function PaletteGenerator() {
           </button>
         </div>
       </div>
+
+      <WebsitePreview colors={palette.map((color) => color.hex)} />
 
       <details className="rounded-md border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
         <summary className="flex cursor-pointer items-center gap-2 font-semibold text-slate-950 dark:text-white">
