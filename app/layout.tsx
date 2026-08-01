@@ -9,24 +9,24 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Color Palette Generator - Create Beautiful Color Combinations",
-    template: "%s | Color Palette Generator"
+    default: "Nar & Zeytin QR Menü - İçerik, Kalori ve Alerjen Bilgisi",
+    template: "%s | Nar & Zeytin"
   },
-  description: "Generate, customize, save, and export beautiful color palettes for websites, branding, presentations, and creative projects.",
+  description: "Modern Türk restoranı Nar & Zeytin için içerik, kalori, porsiyon ve alerjen bilgilerini gösteren QR menü.",
   alternates: {
     canonical: "/"
   },
   openGraph: {
-    title: "Color Palette Generator",
-    description: "Create beautiful color combinations in seconds.",
+    title: "Nar & Zeytin QR Menü",
+    description: "Sipariş öncesi içerik, kalori ve alerjen bilgilerini inceleyin.",
     url: "/",
-    siteName: "Color Palette Generator",
+    siteName: "Nar & Zeytin",
     type: "website"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Color Palette Generator",
-    description: "Generate, customize, save, and export beautiful palettes."
+    title: "Nar & Zeytin QR Menü",
+    description: "Modern Türk restoranı için şeffaf QR menü."
   },
   icons: {
     icon: "/favicon.svg",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="tr" suppressHydrationWarning>
       <body className="font-sans text-slate-900 antialiased dark:text-slate-100">
         <ToastProvider>
           <Header />
