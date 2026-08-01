@@ -132,7 +132,12 @@ export function generatePalette(current: PaletteColor[], mode: GenerationMode, b
   });
 }
 
-export function createInitialPalette(count = 5) {
+const defaultPalette = ["#B31A25", "#FFFFFF", "#3A3EC7"];
+
+export function createInitialPalette(count = defaultPalette.length) {
+  if (count === defaultPalette.length) {
+    return defaultPalette.map((hex) => ({ id: id(), hex, locked: false }));
+  }
   return Array.from({ length: count }, () => ({ id: id(), hex: randomFromRange(), locked: false }));
 }
 

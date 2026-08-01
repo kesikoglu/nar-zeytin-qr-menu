@@ -16,6 +16,10 @@ describe("color utilities", () => {
     expect(contrastResults(2.9).largeAA).toBe(false);
   });
 
+  it("starts with the default three-color palette", () => {
+    expect(createInitialPalette().map((color) => color.hex)).toEqual(["#B31A25", "#FFFFFF", "#3A3EC7"]);
+  });
+
   it("preserves locked colors while generating", () => {
     const palette = createInitialPalette(5);
     const locked = { ...palette[2], locked: true, hex: "#123456" };
