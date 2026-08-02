@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Neon Brutalist Format</title>
+    <meta
+      name="description"
+      content="Reusable neon brutalist web format with editable content slots and fixed visual grammar."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="format-board" aria-label="Neon brutalist format preview">
+      <section class="format-window window-intro" data-slot="hero">
+        <header class="window-chrome">
+          <a class="mark" href="#" aria-label="Format home">◎</a>
+          <nav class="nav-strip" aria-label="Format navigation">
+            <a href="#" aria-current="page">Home</a>
+            <a href="#">Index</a>
+            <a href="#">Works</a>
+            <a href="#">Signal</a>
+          </nav>
+          <div class="chrome-actions" aria-hidden="true">
+            <span>▾</span>
+            <span>⌕</span>
+            <span>▦</span>
+          </div>
+        </header>
+
+        <div class="window-grid intro-grid">
+          <div class="rail">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="intro-copy">
+            <p class="slot-label">Content slot</p>
+            <p class="micro-copy">
+              Replace this copy from data. The visual system stays fixed while the content changes per project.
+            </p>
+            <h1>INTRO</h1>
+          </div>
+          <figure class="media-frame tall">
+            <img
+              src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=900"
+              alt="Editorial streetwear portrait used as a replaceable visual slot"
+            />
+          </figure>
+          <a class="outline-arrow" href="#menu" aria-label="Open menu section">↓</a>
+        </div>
+      </section>
+
+      <section id="menu" class="format-window window-menu" data-slot="navigation">
+        <div class="mega-type" aria-label="Large modular menu words">
+          <span></span>
+          <strong>EVENT</strong>
+          <strong>COLLAB</strong>
+          <span></span>
+          <span></span>
+          <strong>ABOUT</strong>
+          <strong>BLOG</strong>
+          <span></span>
+        </div>
+        <button class="close-button" type="button" aria-label="Close menu">×</button>
+        <div class="link-stack">
+          <p class="slot-label">Products</p>
+          <a href="#">Format section alpha</a>
+          <a href="#">Format section beta</a>
+          <a href="#">Format section gamma</a>
+          <a href="#">Format section delta</a>
+          <a href="#">Format section epsilon</a>
+        </div>
+        <a class="corner-arrow" href="#" aria-label="Open selected item">↘</a>
+      </section>
+
+      <section class="format-window window-team" data-slot="collection">
+        <header class="window-chrome">
+          <a class="mark" href="#" aria-label="Format home">◎</a>
+          <nav class="nav-strip" aria-label="Collection navigation">
+            <a href="#">Home</a>
+            <a href="#" aria-current="page">Team</a>
+            <a href="#">Product</a>
+            <a href="#">Contact</a>
+          </nav>
+          <div class="chrome-actions" aria-hidden="true">
+            <span>▾</span>
+            <span>⌕</span>
+            <span>▦</span>
+          </div>
+        </header>
+        <div class="team-grid">
+          <h2>TEAM</h2>
+          <article class="profile-card image-card">
+            <img
+              src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&q=80&w=700"
+              alt="Replaceable editorial portrait for the first collection slot"
+            />
+            <p>Lead slot</p>
+          </article>
+          <article class="profile-card">
+            <span>2.</span>
+            <p>Secondary slot</p>
+            <a href="#" aria-label="Open secondary slot">↘</a>
+          </article>
+          <article class="profile-card">
+            <span>3.</span>
+            <p>Tertiary slot</p>
+            <a href="#" aria-label="Open tertiary slot">↘</a>
+          </article>
+          <article class="profile-card">
+            <span>4.</span>
+            <p>Fourth slot</p>
+            <a href="#" aria-label="Open fourth slot">↘</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="format-window window-contact" data-slot="form">
+        <header class="window-chrome">
+          <a class="mark" href="#" aria-label="Format home">◎</a>
+          <nav class="nav-strip" aria-label="Contact navigation">
+            <a href="#">Home</a>
+            <a href="#">Team</a>
+            <a href="#">Product</a>
+            <a href="#" aria-current="page">Contact</a>
+          </nav>
+          <div class="chrome-actions" aria-hidden="true">
+            <span>▾</span>
+            <span>⌕</span>
+            <span>▦</span>
+          </div>
+        </header>
+        <div class="contact-grid">
+          <h2>LETS<br />GET IN<br />CONTACT</h2>
+          <form>
+            <label>
+              Name
+              <input type="text" name="name" autocomplete="name" />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" autocomplete="email" />
+            </label>
+            <label>
+              Phone
+              <input type="tel" name="phone" autocomplete="tel" />
+            </label>
+            <label>
+              Message
+              <textarea name="message"></textarea>
+            </label>
+            <button type="submit">Send message</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="format-window window-product" data-slot="detail">
+        <header class="window-chrome">
+          <a class="mark" href="#" aria-label="Format home">◎</a>
+          <nav class="nav-strip" aria-label="Product navigation">
+            <a href="#">Home</a>
+            <a href="#">Team</a>
+            <a href="#" aria-current="page">Product</a>
+            <a href="#">Contact</a>
+          </nav>
+          <div class="chrome-actions" aria-hidden="true">
+            <span>▾</span>
+            <span>⌕</span>
+            <span>▦</span>
+          </div>
+        </header>
+        <div class="product-grid">
+          <div class="product-copy">
+            <h2>ITEM TITLE<br />X EDITION</h2>
+            <p class="price">£35.00 USD</p>
+            <button type="button">Add to cart ↘</button>
+            <div class="accordion-lines" aria-label="Detail rows">
+              <span>Description</span>
+              <span>Delivery</span>
+              <span>Materials</span>
+              <span>Instructions</span>
+            </div>
+          </div>
+          <figure class="media-frame wide">
+            <img
+              src="https://images.unsplash.com/photo-1506629905607-d9b1b2e3d7a5?auto=format&fit=crop&q=80&w=1000"
+              alt="Replaceable product lifestyle image"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <section class="format-window window-filter" data-slot="catalog">
+        <header class="window-chrome">
+          <a class="mark" href="#" aria-label="Format home">◎</a>
+          <nav class="nav-strip" aria-label="Catalog navigation">
+            <a href="#">Home</a>
+            <a href="#">Team</a>
+            <a href="#" aria-current="page">Product</a>
+            <a href="#">Contact</a>
+          </nav>
+          <div class="chrome-actions" aria-hidden="true">
+            <span>▾</span>
+            <span>⌕</span>
+            <span>▦</span>
+          </div>
+        </header>
+        <div class="catalog-grid">
+          <aside>
+            <h2>FILTER BY</h2>
+            <p>Collection</p>
+            <a href="#">All</a>
+            <a href="#">Women</a>
+            <a href="#">Men</a>
+            <a href="#">Sale</a>
+            <button type="button">Special edition +</button>
+            <button type="button">Price +</button>
+            <button type="button">Color +</button>
+          </aside>
+          <article>
+            <img
+              src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=700"
+              alt="Replaceable catalog product image one"
+            />
+            <p>Product one <span>↘</span></p>
+          </article>
+          <article>
+            <img
+              src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&q=80&w=700"
+              alt="Replaceable catalog product image two"
+            />
+            <p>Product two <span>↘</span></p>
+          </article>
+          <article>
+            <img
+              src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&q=80&w=700"
+              alt="Replaceable catalog product image three"
+            />
+            <p>Product three <span>↘</span></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="format-window window-blog" data-slot="editorial">
+        <header class="window-chrome">
+          <a class="mark" href="#" aria-label="Format home">◎</a>
+          <nav class="nav-strip" aria-label="Editorial navigation">
+            <a href="#">Home</a>
+            <a href="#">Team</a>
+            <a href="#">Product</a>
+            <a href="#">Contact</a>
+          </nav>
+          <div class="chrome-actions" aria-hidden="true">
+            <span>▾</span>
+            <span>⌕</span>
+            <span>▦</span>
+          </div>
+        </header>
+        <div class="blog-grid">
+          <article>
+            <p>Short text module. Use this slot for a teaser, update, release note or brand note.</p>
+            <h2>BLOG</h2>
+          </article>
+          <article class="image-post">
+            <img
+              src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&q=80&w=700"
+              alt="Replaceable editorial image for the first post"
+            />
+            <h3>Post slot one</h3>
+          </article>
+          <article>
+            <h3>Post slot two</h3>
+            <p>Text can be replaced without changing the structural format.</p>
+            <a href="#" aria-label="Open post slot two">↘</a>
+          </article>
+          <article class="image-post">
+            <img
+              src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&q=80&w=700"
+              alt="Replaceable editorial image for the third post"
+            />
+            <h3>Post slot three</h3>
+          </article>
+        </div>
+      </section>
+
+      <section class="format-window window-cart" data-slot="checkout">
+        <header class="window-chrome">
+          <a class="mark" href="#" aria-label="Format home">◎</a>
+          <nav class="nav-strip" aria-label="Checkout navigation">
+            <a href="#">Home</a>
+            <a href="#">Team</a>
+            <a href="#">Product</a>
+            <a href="#">Contact</a>
+          </nav>
+          <div class="chrome-actions" aria-hidden="true">
+            <span>▾</span>
+            <span>⌕</span>
+            <span>▦</span>
+          </div>
+        </header>
+        <div class="cart-grid">
+          <aside>
+            <h2>DEETS</h2>
+            <p>Address</p>
+            <span>123 street name<br />City name<br />State country<br />Postcode</span>
+            <button type="button">Personal details +</button>
+            <button type="button">Delivery +</button>
+            <div class="total-row">Total <strong>£35.00</strong></div>
+          </aside>
+          <div class="cart-list">
+            <article>
+              <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&q=80&w=300" alt="Product thumbnail one" />
+              <span>Product one</span>
+              <strong>£35.00</strong>
+              <em>x1</em>
+            </article>
+            <article>
+              <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&q=80&w=300" alt="Product thumbnail two" />
+              <span>Product two</span>
+              <strong>£35.00</strong>
+              <em>x1</em>
+            </article>
+            <article>
+              <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&q=80&w=300" alt="Product thumbnail three" />
+              <span>Product three</span>
+              <strong>£35.00</strong>
+              <em>x1</em>
+            </article>
+          </div>
+          <aside class="payment-panel">
+            <h3>Your cart</h3>
+            <label>
+              Card number
+              <input type="text" inputmode="numeric" />
+            </label>
+            <div class="split-fields">
+              <label>
+                Expiry date
+                <input type="text" />
+              </label>
+              <label>
+                CVV
+                <input type="text" inputmode="numeric" />
+              </label>
+            </div>
+            <button type="button">Checkout</button>
+          </aside>
+        </div>
+      </section>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>
